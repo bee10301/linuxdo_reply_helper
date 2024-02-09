@@ -96,7 +96,7 @@
   let mutationObserver = new MutationObserver(observeNewPosts);
 
   // Mutation Observer check node change
-  mutationObserver.observe(document.querySelector(".post-stream"), {
+  mutationObserver.observe(document, {
     childList: true, // check child node
     subtree: true, // check all child node
   });
