@@ -23,6 +23,20 @@
   for (let i = 0; i < document.querySelectorAll(".show-replies").length; i++) {
     document.querySelectorAll(".show-replies")[i].click();
   }
+  // small replies
+  for (let i = 0; i < document.querySelectorAll(".topic-post").length; i++) {
+    let replyTab = document
+      .querySelectorAll(".topic-post")
+      [i].querySelector(".reply-to-tab");
+    let replyBtn = document
+      .querySelectorAll(".topic-post")
+      [i].querySelector(".show-replies");
+    if (replyTab && !replyBtn) {
+      document
+        .querySelectorAll(".topic-post")
+        [i].querySelector(".cooked").style.display = "none";
+    }
+  }
   // new user
   for (let i = 0; i < document.querySelectorAll(".new-user").length; i++) {
     document.querySelectorAll(".new-user")[i].style.display = "none";
@@ -68,7 +82,7 @@
           let replyTab = addedNode.querySelector(".reply-to-tab");
           let replyBtn = addedNode.querySelector(".show-replies");
           if (replyTab && !replyBtn) {
-            addedNode.style.display = "none";
+            addedNode.querySelector(".cooked").style.display = "none";
           } else {
             // load replies
             observer.observe(addedNode);
